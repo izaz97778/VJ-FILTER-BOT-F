@@ -45,7 +45,7 @@ reqst_channel = environ.get('REQST_CHANNEL', '')
 REQST_CHANNEL = int(reqst_channel) if reqst_channel and id_pattern.search(reqst_channel) else None
 
 # This Channel Is For Index Request 
-INDEX_REQ_CHANNEL = int(environ.get('INDEX_REQ_CHANNEL', LOG_CHANNEL))
+INDEX_REQ_CHANNEL = [int(x) for x in environ.get('INDEX_REQ_CHANNEL', str(LOG_CHANNEL)).split()]
 
 # This Is Your Bot Support Group Id , Here Bot Will Not Give File Because This Is Support Group.
 support_chat_id = environ.get('SUPPORT_CHAT_ID', '')
